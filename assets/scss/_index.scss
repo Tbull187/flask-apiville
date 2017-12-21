@@ -1,0 +1,62 @@
+.promo {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding-bottom: 1rem;
+    background-color: #2b2f3e;
+    color: #fff;
+    h1 {
+        font-size: 44px;
+        font-weight: 100;
+        margin: 0;
+        padding-top: 8rem;
+    }
+    h2 {
+        font-weight: 300;
+        color: #959bae;
+    }
+    .github-btn-link {
+        display: inline-block;        
+        font-size: 1.1rem;
+        font-weight: 300;
+        margin-top: 30px;;
+        padding: 1rem 2rem;
+        border-radius: 1.5rem;
+        background-color: #727df0;
+        &:hover {
+            background-color: #808af2; 
+        }        
+    }
+    .github-btn-inside {
+
+    }
+    .github-cta {        
+        font-size: 1.1rem;
+        color: #959bae;
+        a {
+            font-weight: 400;
+            color: #fff;
+        }
+    }
+}
+
+.enterprise {
+    display: flex;
+    justify-content: space-around;
+    padding: 2.5rem 0;
+    background-color: #515c71;
+    font-weight: 100;
+    color: #fff;
+    h2 {        
+        margin: 0;
+        font-weight: inherit;
+    }
+
+    .enterprise-btn {
+        font-size: 1.5em;
+    }
+}
+
+.brands {
+    
+}
