@@ -46,7 +46,20 @@ nav {
 
 footer {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     background-color: #2b2f3e;
-    color: #747d93;    
+    color: #747d93;
+    .footer-column {
+        padding: 0 1rem;
+    }
+    h3 {
+        color: #5acbad;
+    }
+    ul {
+        padding: 0;
+    }
+    li {
+ 
+    }
 }

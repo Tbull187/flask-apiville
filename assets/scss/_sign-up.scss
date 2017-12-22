@@ -1,0 +1,21 @@
+.sign-up {
+    background-color: #f0f1f4;
+    color: #747d93;
+}
+
+.form-container {
+    max-width: 280px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    h1 {
+        font-weight: 100;
+    }
+    .signup-btn {
+        color: hsla(0,0%,100%,.8);
+    }
+    .github {
+        background-color: #99c;
+    }
+}
