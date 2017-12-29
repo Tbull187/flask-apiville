@@ -1,19 +1,20 @@
 from flask import Flask, request, render_template, redirect, url_for, make_response
 from flask_scss import Scss
 import json
+# Forms
+from flask_wtf import Form
+from wtforms import StringField, PasswordField
+from wtforms.validators import DataRequired, Email
 
 app = Flask(__name__)
 app.debug = True
-Scss(app, static_dir='static', asset_dir='assets')
+Scss(app, static_dir='static', asset_dir='assets')   
 
-
-def get_saved_data():
-    try:
-        data =json.loads(request.cookies.get('sign-up'))
-    except TypeError:
-        data = {}
-        return data    
-
+# signUp form
+class SignUpForm(Form):
+    name = StringField('Name', validators=[DataRequired()])
+    email = StringField('Email', validators=[DataRequired(), Email()])
+    password = PasswordField('Password', validators=[DataRequired()])
 
 @app.route('/')
 def index():
@@ -45,14 +46,16 @@ def signIn():
 
 @app.route('/sign-up')
 def signUp():
-    return render_template('sign-up.html')
+    form = SignUpForm()
+    return render_template('sign-up.html', form=form)
 ###############################################
 
 @app.route('/save', methods=['POST'])
 def save():
-    response = make_response(redirect(url_for('index')))
-    response.set_cookie('sign-up', json.dumps(dict(request.form.items())))
-    return response
-
+    form = SignUpForm()
+    if form.validate_on_submit():
+        print('form submitted')
+        return redirect(url_for('index'))
+    return render_template('sign-up.html', form=form)
 
 app.run(debug=True, host='0.0.0.0', port=5000)
