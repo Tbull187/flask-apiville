@@ -1,9 +1,19 @@
-from flask import Flask, request, render_template
+from flask import Flask, request, render_template, redirect, url_for, make_response
 from flask_scss import Scss
+import json
 
 app = Flask(__name__)
 app.debug = True
 Scss(app, static_dir='static', asset_dir='assets')
+
+
+def get_saved_data():
+    try:
+        data =json.loads(request.cookies.get('sign-up'))
+    except TypeError:
+        data = {}
+        return data    
+
 
 @app.route('/')
 def index():
@@ -36,5 +46,13 @@ def signIn():
 @app.route('/sign-up')
 def signUp():
     return render_template('sign-up.html')
+###############################################
 
-# app.run(debug=True, host='0.0.0.0', port=5000)
+@app.route('/save', methods=['POST'])
+def save():
+    response = make_response(redirect(url_for('index')))
+    response.set_cookie('sign-up', json.dumps(dict(request.form.items())))
+    return response
+
+
+app.run(debug=True, host='0.0.0.0', port=5000)

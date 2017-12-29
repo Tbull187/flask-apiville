@@ -9,12 +9,16 @@
         <a class="signup-btn github" href="">Continue with GitHub</a>
         <a class="signup-btn twitter" href="">Continue with Twitter</a>
         <h2>OR</h2>
-        <form>
-    
+        <form action="{{ url_for('save') }}" method="POST">
+            <input type="text" placeholder="name">
+            <input type="email" placeholder="email">
+            <input type="password" placeholder="password">
+            <p>password must be at least 8 characters</p>
+            <button class="" type="submit">SIGNUP FOR APIVILLE</button>
         </form>
     </div>
 
-</section>>
+</section>
 
 
 

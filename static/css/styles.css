@@ -160,6 +160,9 @@ html {
                                                                                       display: none; }
 
                                                                                       body {
+                                                                                        display: flex;
+                                                                                        flex-direction: column;
+                                                                                        height: 100vh;
                                                                                         font-family: 'Roboto', sans-serif; }
 
                                                                                         a {
@@ -194,18 +197,21 @@ nav ul {
   nav ul li {
     padding: 0 1em; }
 
-footer {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  background-color: #2b2f3e;
-  color: #747d93; }
-  footer .footer-column {
-    padding: 0 1rem; }
-    footer h3 {
-      color: #5acbad; }
-      footer ul {
-        padding: 0; }
+.content {
+  flex: 1; }
+
+  .footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: #2b2f3e;
+    color: #747d93; }
+    .footer-container .footer-column {
+      padding: 0 1rem; }
+      .footer-container h3 {
+        color: #5acbad; }
+        .footer-container ul {
+          padding: 0; }
 
 .promo {
   display: flex;
@@ -292,6 +298,8 @@ padding: 1rem 2rem;
         color: #5acbad; }
 
 .sign-up {
+  height: 100%;
+  padding: 50px 0;
   background-color: #f0f1f4;
   color: #747d93; }
 
@@ -304,6 +312,10 @@ padding: 1rem 2rem;
     .form-container h1 {
       font-weight: 100; }
       .form-container .signup-btn {
+        padding: 1em;
+        border-radius: 5px;
         color: rgba(255, 255, 255, 0.8); }
         .form-container .github {
           background-color: #99c; }
+          .form-container .twitter {
+            background-color: #55acee; }
