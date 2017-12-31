@@ -7,15 +7,12 @@ from wtforms import StringField, PasswordField
 from wtforms.validators import DataRequired, Email
 
 app = Flask(__name__, instance_relative_config=True)
+# base config and relative instance config
 app.config.from_object('config.default')
 app.config.from_pyfile('config.py')
+# set secret_key and static files
+app.secret_key = app.config['SECERET_KEY']
 Scss(app, static_dir='static', asset_dir='assets')   
-
-# signUp form
-class SignUpForm(Form):
-    name = StringField('Name', validators=[DataRequired()])
-    email = StringField('Email', validators=[DataRequired(), Email()])
-    password = PasswordField('Password', validators=[DataRequired()])
 
 @app.route('/')
 def index():
@@ -50,6 +47,12 @@ def signUp():
     form = SignUpForm()
     return render_template('sign-up.html', form=form)
 ###############################################
+
+# signUp form
+class SignUpForm(Form):
+    name = StringField('Name', validators=[DataRequired()])
+    email = StringField('Email', validators=[DataRequired(), Email()])
+    password = PasswordField('Password', validators=[DataRequired()])
 
 @app.route('/save', methods=['POST'])
 def save():
