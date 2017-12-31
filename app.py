@@ -6,8 +6,9 @@ from flask_wtf import Form
 from wtforms import StringField, PasswordField
 from wtforms.validators import DataRequired, Email
 
-app = Flask(__name__)
-app.debug = True
+app = Flask(__name__, instance_relative_config=True)
+app.config.from_object('config.default')
+app.config.from_pyfile('config.py')
 Scss(app, static_dir='static', asset_dir='assets')   
 
 # signUp form
