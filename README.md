@@ -1,5 +1,5 @@
 # Instructions
 
-* (optional) activate python virtualenv
+* (optional) activate new python virtualenv
 * pip install -r requirements.txt
-* python3 app.py
+* python3 run.py

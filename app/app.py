@@ -2,17 +2,18 @@ from flask import Flask, request, render_template, redirect, url_for, make_respo
 from flask_scss import Scss
 import json
 # Forms
-from flask_wtf import Form
+from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField
 from wtforms.validators import DataRequired, Email
 
 app = Flask(__name__, instance_relative_config=True)
-# base config and relative instance config
+# default config and relative instance/config
 app.config.from_object('config.default')
 app.config.from_pyfile('config.py')
 # set secret_key and static files
 app.secret_key = app.config['SECERET_KEY']
-Scss(app, static_dir='static', asset_dir='assets')   
+# flask_scss config
+Scss(app, static_dir='app/static', asset_dir='app/assets')   
 
 @app.route('/')
 def index():
@@ -49,7 +50,7 @@ def signUp():
 ###############################################
 
 # signUp form
-class SignUpForm(Form):
+class SignUpForm(FlaskForm):
     name = StringField('Name', validators=[DataRequired()])
     email = StringField('Email', validators=[DataRequired(), Email()])
     password = PasswordField('Password', validators=[DataRequired()])
