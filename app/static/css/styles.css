@@ -319,3 +319,6 @@ padding: 1rem 2rem;
           background-color: #99c; }
           .form-container .twitter {
             background-color: #55acee; }
+
+.errors {
+  color: red; }
