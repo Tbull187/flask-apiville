@@ -9,7 +9,7 @@
         <a class="signup-btn github" href="">Continue with GitHub</a>
         <a class="signup-btn twitter" href="">Continue with Twitter</a>
         <h2>OR</h2>
-        <form action="{{ url_for('form_page.submit') }}" method="POST">            
+        <form action="{{ url_for('submit') }}" method="POST">            
             {{ form.username }}
             {{ form.email }}
             {{ form.password }}
