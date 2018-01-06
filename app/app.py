@@ -15,7 +15,6 @@ Scss(app, static_dir='app/static', asset_dir='app/assets')
 
 db = SQLAlchemy(app)
 
-
 app.register_blueprint(main)
 app.register_blueprint(form_page)
 
