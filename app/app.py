@@ -1,6 +1,7 @@
 from flask import Flask
 from flask_scss import Scss
 from flask_sqlalchemy import SQLAlchemy
+from flask_migrate import Migrate
 
 app = Flask(__name__, instance_relative_config=True)
 # default config and relative instance/config
@@ -12,8 +13,10 @@ app.secret_key = app.config['SECERET_KEY']
 Scss(app, static_dir='static', asset_dir='assets')
 
 db = SQLAlchemy(app)
+migrate = Migrate(app, db)
 
 from .forms import *
 from .views import *
+from .models import *
 
-app.run(host='0.0.0.0', port=5000)
+#app.run(host='0.0.0.0', port=5000)
