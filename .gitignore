@@ -2,3 +2,5 @@
 __pycache__
 .vscode
 instance/
+app.db
+app.db-journal

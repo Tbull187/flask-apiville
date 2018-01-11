@@ -18,5 +18,3 @@ migrate = Migrate(app, db)
 from .forms import *
 from .views import *
 from .models import *
-
-#app.run(host='0.0.0.0', port=5000)
